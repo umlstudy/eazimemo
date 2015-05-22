@@ -9,14 +9,15 @@ import asia.sejong.web.eazimemo.domain.SimpleBoard;
 
 public interface SimpleBoardMapper {
 
-	public List<SimpleBoard> selectAllSimpleBoard();
-
 	public int insertSimpleBoard(SimpleBoard simpleBoard);
 
-	@Select("SELECT * FROM SimpleBoard")
-	public List<SimpleBoard> selectAllSimpleBoard2();
+	public int updateSimpleBoard(SimpleBoard simpleBoard);
 
-	@Select("SELECT * FROM SimpleBoard WHERE id = #{id}")
+	@Select("SELECT * FROM SimpleBoard")
+	public List<SimpleBoard> selectAllSimpleBoard();
+
+	@Select("SELECT * FROM SimpleBoard WHERE idx = #{idx}")
 	public SimpleBoard selectSimpleBoard(@Param("idx") int idx);
+
 
 }

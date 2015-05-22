@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
@@ -25,6 +26,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @EnableTransactionManagement
 @Profile("dev")
 @MapperScan("asia.sejong.web.eazimemo.mapper")
+@ComponentScan(basePackages= {
+		 "asia.sejong.web.eazimemo.service"
+})
 public class DbConfig extends WebMvcConfigurationSupport {  
 	
 	@Autowired

@@ -1,11 +1,15 @@
 package asia.sejong.web.eazimemo.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,6 +22,9 @@ import org.springframework.web.context.WebApplicationContext;
 
 import asia.sejong.web.eazimemo.springconfig.root.DbConfig;
 import asia.sejong.web.eazimemo.springconfig.web.MvcConfig;
+import asia.sejong.web.eazimemo.web.json.JsonResult;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(
@@ -41,9 +48,9 @@ public class SimpleBoardControllerTest {
     protected IndexController ctrl;
     
 	@Test
-	public void index() throws Exception {
+	public void list() throws Exception {
 		
-		String path ="/index";
+		String path ="/list";
 		MvcResult result = mockMvc.perform(
 				get(path)
 				.param("debug", "true")
@@ -54,5 +61,33 @@ public class SimpleBoardControllerTest {
 		
 		ModelMap modelMap = result.getModelAndView().getModelMap();
 		System.out.println(modelMap);
+	}
+	
+	@Test
+	public void insertAndUpdate() throws Exception {
+		
+		String path ="/apply";
+		MvcResult result = mockMvc.perform(
+				post(path)
+				.param("title", "Hello")
+				.param("body", "Hello BODY")
+				.accept(MediaType.APPLICATION_JSON)
+				)
+				.andReturn();
+		String content = result.getResponse().getContentAsString();
+		System.out.println(content);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		JsonResult rslt = mapper.readValue(content, JsonResult.class);
+		Map<?,?> sb = (Map<?,?>)rslt.getResult();
+		result = mockMvc.perform(
+				post(path)
+				.param("title", "Hello updated")
+				.param("body", "Hello BODY Updated")
+				.param("idx", sb.get("idx").toString())
+				)
+				.andReturn();
+		
+		System.out.println(result);
 	}
 }

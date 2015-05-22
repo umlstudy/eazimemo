@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class SimpleBoard {
 
-	private int idx;
+	private Integer idx;
 
 	private String body;
 
@@ -17,11 +17,11 @@ public class SimpleBoard {
 	public SimpleBoard() {
 	}
 
-	public int getIdx() {
+	public Integer getIdx() {
 		return this.idx;
 	}
 
-	public void setIdx(int idx) {
+	public void setIdx(Integer idx) {
 		this.idx = idx;
 	}
 
