@@ -1,6 +1,5 @@
 package asia.sejong.web.eazimemo.springconfig.web;
 
-import java.util.ArrayList;
 import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
@@ -11,10 +10,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.http.MediaType;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.accept.ContentNegotiationManagerFactoryBean;
-import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
-import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
@@ -28,7 +25,7 @@ public class MvcConfig extends WebMvcConfigurationSupport {
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-		resolver.setPrefix("/WEB-INF/view/");
+		resolver.setPrefix("/view/");
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}

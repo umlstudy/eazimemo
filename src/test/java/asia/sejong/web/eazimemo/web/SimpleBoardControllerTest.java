@@ -50,7 +50,7 @@ public class SimpleBoardControllerTest {
 	@Test
 	public void list() throws Exception {
 		
-		String path ="/list";
+		String path ="/simpleBoard/list";
 		MvcResult result = mockMvc.perform(
 				get(path)
 				.param("debug", "true")
@@ -66,7 +66,7 @@ public class SimpleBoardControllerTest {
 	@Test
 	public void insertAndUpdate() throws Exception {
 		
-		String path ="/apply";
+		String path ="/simpleBoard/apply";
 		MvcResult result = mockMvc.perform(
 				post(path)
 				.param("title", "Hello")
