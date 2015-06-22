@@ -14,10 +14,11 @@ archivesBaseName = "eazimemo"
 // 개발할 애플리케이션 그룹명
 group = "asia.sejong"
 // 의존성 설정에 사용할 프로퍼티
-springVersion = "3.2.0.RELEASE"
-logbackVersion = "1.1.2"
-aspectjVersion = "1.7.4"
-slf4jVersion =  "1.7.7"
+
+project.ext.springVersion = "3.2.0.RELEASE"
+project.ext.logbackVersion = "1.1.2"
+project.ext.aspectjVersion = "1.7.4"
+project.ext.slf4jVersion =  "1.7.7"
 // 반드시 수정 종료
 
 // JAVA 컴파일시 인코딩 설정
@@ -68,6 +69,7 @@ dependencies {
 	compile("org.springframework:spring-webmvc:$project.ext.springVersion")
 	compile("org.springframework:spring-tx:$project.ext.springVersion")
 	compile "org.springframework:spring-test:$project.ext.springVersion"
+	compile('org.sitemesh:sitemesh:3.0.0')
 	
 	compile("commons-dbcp:commons-dbcp:1.4")
 	compile("org.hsqldb:hsqldb:2.3.2")
@@ -89,6 +91,7 @@ dependencies {
 	compile 'com.fasterxml.jackson.core:jackson-core:2.4.4'
 	compile 'com.fasterxml.jackson.core:jackson-databind:2.4.4'
 	//compile 'org.commonjava.googlecode.markdown4j:markdown4j:2.2-cj-1.0'
+	// md 해석기
 	compile 'org.pegdown:pegdown:1.5.0'
 	
 	compile "com.googlecode.log4jdbc:log4jdbc:1.2"
@@ -96,6 +99,7 @@ dependencies {
 	compile "org.slf4j:slf4j-api:$project.ext.slf4jVersion"
 	compile "ch.qos.logback:logback-core:$project.ext.logbackVersion"
 	compile "ch.qos.logback:logback-classic:$project.ext.logbackVersion"
+	compile "ch.qos.logback:logback-access:$project.ext.logbackVersion"
 		
 	testCompile("junit:junit:4.11")
 }
@@ -113,7 +117,7 @@ configurations {
 test {
     jvmArgs = ["-ea", "-Xmx256m"]
     logging.captureStandardOutput(LogLevel.INFO)
-    testReport = false
+    //testReport = false
 }
 
 // 프로젝트 초기화

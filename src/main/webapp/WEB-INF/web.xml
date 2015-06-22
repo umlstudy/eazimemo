@@ -42,6 +42,16 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 			<param-value>dev</param-value>
 		</init-param>
 	</servlet>
+	
+	<filter>
+    	<filter-name>sitemesh</filter-name>
+    	<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+  	</filter>
+
+	<filter-mapping>
+    	<filter-name>sitemesh</filter-name>
+    	<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<servlet-mapping>
 		<servlet-name>eazimemo</servlet-name>
