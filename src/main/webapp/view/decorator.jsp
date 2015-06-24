@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <title>타이틀자리<sitemesh:write property='title'>타이틀자리...</sitemesh:write></title>

@@ -1,0 +1,23 @@
+{
+  "name": "eazimemo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/umlstudy/eazimemo",
+  "authors": [
+    "sejong <umlstudy@gmail.com>"
+  ],
+  "description": "eazimemo",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "1.9.1",
+    "summernote": "0.5.0",
+    "bootstrap": "3.0.1",
+    "font-awesome": "4.0.3"
+  }
+}
