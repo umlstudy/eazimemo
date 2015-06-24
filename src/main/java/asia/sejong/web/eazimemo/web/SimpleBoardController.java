@@ -36,7 +36,8 @@ public class SimpleBoardController {
 		mv.addObject("simpleBoard", simpleBoard);
 		PegDownProcessor pdp = new PegDownProcessor();
 		pdp.markdownToHtml(simpleBoard.getBody());
-		mv.addObject("simpleBoardBody", pdp.markdownToHtml(simpleBoard.getBody()));
+		//mv.addObject("simpleBoardBody", pdp.markdownToHtml(simpleBoard.getBody()));
+		mv.addObject("simpleBoardBody", simpleBoard.getBody());
 		mv.setViewName("/simpleboard/simpleBoardShow");
 		return mv;
 	}
@@ -50,7 +51,7 @@ public class SimpleBoardController {
 		}
 		
 		mv.addObject("simpleBoard", simpleBoard);
-		mv.setViewName("/simpleboard/simpleBoardEdit");
+		mv.setViewName("/simpleboard/simpleBoardEditBySummerNote");
 		return mv;
 	}
 	

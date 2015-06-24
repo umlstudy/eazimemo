@@ -18,6 +18,8 @@
     "jquery": "1.9.1",
     "summernote": "0.5.0",
     "bootstrap": "3.0.1",
-    "font-awesome": "4.0.3"
+    "font-awesome": "4.0.3",
+    "validationEngine": "~2.6.4",
+    "jquery-validate": "1.13.1"
   }
 }
