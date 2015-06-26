@@ -1,5 +1,7 @@
 package asia.sejong.web.eazimemo.web;
 
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.apache.commons.lang.builder.ToStringStyle;
 import org.pegdown.PegDownProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -63,6 +65,7 @@ public class ArticleController {
 	@RequestMapping(method = RequestMethod.POST, value = "/apply")
 	@ResponseBody
 	public JsonResult apply(Article article) {
+		System.out.println(ToStringBuilder.reflectionToString(article, ToStringStyle.SIMPLE_STYLE));
 		if ( article.getArticleId() != null ) {
 			articleService.updateArticle(article);
 		} else {

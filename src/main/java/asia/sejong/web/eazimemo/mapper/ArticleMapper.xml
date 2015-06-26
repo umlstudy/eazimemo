@@ -3,6 +3,8 @@
  
 <mapper namespace="asia.sejong.web.eazimemo.mapper.ArticleMapper">
     <insert id="insertArticle" parameterType="asia.sejong.web.eazimemo.domain.Article" 
+       	useGeneratedKeys="true" 
+    	keyProperty="articleId"
     	timeout="10">
 		INSERT INTO article
          	(

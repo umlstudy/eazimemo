@@ -10,13 +10,13 @@
             <appender-ref ref="STDOUT" />
 	</logger>
 	
-	<logger name="org.springframework.web" level="DEBUG">
+	<logger name="org.springframework.web" level="DEBUG" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
 
-	<logger name="jdbc.sqlonly" level="DEBUG"/>
+	<logger name="jdbc.sqlonly" level="DEBUG" additivity="false"/>
   
-	<root level="DEBUG">
-		<appender-ref ref="STDOUT" />
+	<root level="ERROR">
+		<appender-ref ref="STDOUT" additivity="false"/>
 	</root>
 </configuration>
