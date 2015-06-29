@@ -37,6 +37,7 @@ eclipse {
 }
 
 
+/*
 war {
     baseName = "$archivesBaseName"
     archiveName = "$archivesBaseName"
@@ -48,6 +49,7 @@ war {
         attributes provider: "gradle"
     }
 }
+*/
 
 task jettyRunTasks << {
 	println "jettyRun before..."
