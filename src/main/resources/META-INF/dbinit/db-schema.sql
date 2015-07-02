@@ -1,40 +1,79 @@
+--
+-- Article
+--
 CREATE TABLE IF NOT EXISTS Article (
-  -- categoryId varchar(20) NOT NULL COMMENT '게시판종류', 
+  articleId integer unsigned NOT NULL auto_increment,
   parentArticleId integer unsigned NOT NULL default '0' COMMENT '계층적검색을 위한 컬럼',
-  articleId integer unsigned NOT NULL auto_increment = 100,
-  -- writerId varchar(40) NOT NULL,
+  categoryId varchar(20) NOT NULL COMMENT '게시판종류', 
+  writerId varchar(40) NOT NULL,
   title varchar(200) NOT NULL,
   content mediumtext,
   count integer unsigned NOT NULL default '0' COMMENT '읽은 횟수',
   likeThis integer unsigned NOT NULL default '0',
   hateThis integer unsigned NOT NULL default '0',
   email varchar(40),
-  --passwd varchar(20),
+  passwd varchar(20) NOT NULL,
   createTime timestamp default current_timestamp(),
   updateTime timestamp ,
-  PRIMARY KEY  (parentArticleId, articleId)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  PRIMARY KEY  (articleId)
+) 
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8
+auto_increment = 100;
 
+--
+-- Category
+--
 CREATE TABLE IF NOT EXISTS Category (
- categoryId varchar(20) NOT NULL,
+ categoryId varchar(20) NOT NULL COMMENT '카테고리명을 영문으로 작성한다.',
  categoryName varchar(50) NOT NULL,
- --passwd varchar(20),
- --readonly enum('Y', 'N') NOT NULL default 'N',
+ -- readonly enum('Y', 'N') NOT NULL default 'N',
  createTime timestamp default current_timestamp(),
- PRIMARY KEY (num)
-)TYPE=MyISAM,CHARSET=utf8;
+ PRIMARY KEY (categoryId)
+) 
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
 
+--
+-- Comment
+--
 CREATE TABLE IF NOT EXISTS Comment ( 
-  -- categoryId varchar(20) NOT NULL,
-  parentArticleId integer unsigned NOT NULL,
-  articleId integer unsigned NOT NULL,
-  parentCommentId integer unsigned NOT NULL default '0',
-  commentId integer unsigned NOT NULL auto_increment = 100,
+  commentId integer unsigned NOT NULL auto_increment,
+  articleId integer unsigned NOT NULL COMMENT '외부키',
+  parentCommentId integer unsigned NOT NULL default '0' COMMENT '계층적검색을 위한 컬럼',
   content character varying(200) NOT NULL, 
-  -- writerId varchar(40) NOT NULL,
+  writerId varchar(40) NOT NULL,
   createTime timestamp default current_timestamp(),
-  PRIMARY KEY  (parentArticleId, articleId, parentCommentId, commentId)
-); 
+  PRIMARY KEY  (commentId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8
+auto_increment = 100;
+
+--
+-- Keyword
+--
+CREATE TABLE IF NOT EXISTS Keyword ( 
+  keywordId integer unsigned NOT NULL auto_increment,
+  keywordName varchar(50) NOT NULL,
+  createTime timestamp default current_timestamp(),
+  PRIMARY KEY (keywordId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8
+auto_increment = 100;
+
+--
+-- KeywordArticleRel
+--
+CREATE TABLE IF NOT EXISTS KeywordArticleRel ( 
+  keywordId integer unsigned NOT NULL,
+  articleId integer unsigned NOT NULL,
+  createTime timestamp default current_timestamp(),
+  PRIMARY KEY (keywordId, articleId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
 
 -- 계층적 질의를 사용하지 않음 
 SELECT * FROM Article; 

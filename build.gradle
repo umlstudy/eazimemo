@@ -99,11 +99,12 @@ dependencies {
 	
 	compile "com.googlecode.log4jdbc:log4jdbc:1.2"
 	
+	compile 'org.slf4j:jcl-over-slf4j:1.7.7'
 	compile "org.slf4j:slf4j-api:$project.ext.slf4jVersion"
 	compile "ch.qos.logback:logback-core:$project.ext.logbackVersion"
 	compile "ch.qos.logback:logback-classic:$project.ext.logbackVersion"
 	compile "ch.qos.logback:logback-access:$project.ext.logbackVersion"
-		
+  
 	testCompile("junit:junit:4.11")
 }
 
