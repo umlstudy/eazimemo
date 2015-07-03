@@ -73,6 +73,9 @@ public class ArticleController {
 		if ( article.getArticleId() != null ) {
 			articleService.updateArticle(article);
 		} else {
+			article.setWriterId("개똥아");
+			article.setPasswd("암호흥");
+			article.setCategoryId("FreeBoard");
 			articleService.insertArticle(article);
 		}
 

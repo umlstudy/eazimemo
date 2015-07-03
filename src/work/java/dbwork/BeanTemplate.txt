@@ -1,0 +1,8 @@
+package {0};
+
+public class {1} '{'
+
+	{2}
+	
+	{3}
+'}'

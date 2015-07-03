@@ -4,36 +4,19 @@ import java.sql.Timestamp;
 
 public class Article {
 
-	private int parentArticleId;
-
-	private Integer articleId; // 신규생성의 경우 null 값을 가짐.
-
-	private String content;
-
+	private Integer articleId;
+	private Integer parentArticleId;
+	private String categoryId;
+	private String writerId;
 	private String title;
-	
-	private int readCount;
-	
-	private int likeCount;
-	
-	private int hateCount;
-	
-	private int depth;
-
+	private String content;
+	private Integer count;
+	private Integer likeThis;
+	private Integer hateThis;
+	private String email;
+	private String passwd;
 	private Timestamp createTime;
-
 	private Timestamp updateTime;
-
-	public Article() {
-	}
-
-	public int getParentArticleId() {
-		return parentArticleId;
-	}
-
-	public void setParentArticleId(int parentArticleId) {
-		this.parentArticleId = parentArticleId;
-	}
 
 	public Integer getArticleId() {
 		return articleId;
@@ -43,12 +26,28 @@ public class Article {
 		this.articleId = articleId;
 	}
 
-	public String getContent() {
-		return content;
+	public Integer getParentArticleId() {
+		return parentArticleId;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setParentArticleId(Integer parentArticleId) {
+		this.parentArticleId = parentArticleId;
+	}
+
+	public String getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(String categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public String getWriterId() {
+		return writerId;
+	}
+
+	public void setWriterId(String writerId) {
+		this.writerId = writerId;
 	}
 
 	public String getTitle() {
@@ -59,36 +58,52 @@ public class Article {
 		this.title = title;
 	}
 
-	public int getReadCount() {
-		return readCount;
+	public String getContent() {
+		return content;
 	}
 
-	public void setReadCount(int readCount) {
-		this.readCount = readCount;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public int getLikeCount() {
-		return likeCount;
+	public Integer getCount() {
+		return count;
 	}
 
-	public void setLikeCount(int likeCount) {
-		this.likeCount = likeCount;
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 
-	public int getHateCount() {
-		return hateCount;
+	public Integer getLikeThis() {
+		return likeThis;
 	}
 
-	public void setHateCount(int hateCount) {
-		this.hateCount = hateCount;
+	public void setLikeThis(Integer likeThis) {
+		this.likeThis = likeThis;
 	}
 
-	public int getDepth() {
-		return depth;
+	public Integer getHateThis() {
+		return hateThis;
 	}
 
-	public void setDepth(int depth) {
-		this.depth = depth;
+	public void setHateThis(Integer hateThis) {
+		this.hateThis = hateThis;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPasswd() {
+		return passwd;
+	}
+
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 
 	public Timestamp getCreateTime() {
@@ -106,4 +121,5 @@ public class Article {
 	public void setUpdateTime(Timestamp updateTime) {
 		this.updateTime = updateTime;
 	}
+
 }

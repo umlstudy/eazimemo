@@ -8,25 +8,34 @@
     	timeout="10">
 		INSERT INTO article
          	(
-         	parentArticleId
-         	,title
+         	title
+         	,writerId
+         	,passwd
          	,content
          	,updateTime
+         	,categoryId
+         	<if test="parentArticleId != null and parentArticleId != ''">
+	         	,parentArticleId
+			</if>
          	)
 		VALUES
 			(
-			#{parentArticleId}
-			,#{title}
+			#{title}
+			,#{writerId}
+			,#{passwd}
 			,#{content}
 			,now()
+			,#{categoryId}
+			<if test="parentArticleId != null and parentArticleId != ''">
+				,#{parentArticleId}
+			</if>
 			)
     </insert>
     
     <update id="updateArticle" parameterType="asia.sejong.web.eazimemo.domain.Article" timeout="10">
 		UPDATE article
 		set
-			parentArticleId = #{parentArticleId}
-			,title = #{title}
+			 title = #{title}
 			,content = #{content}
 			,updateTime = now()
 		where 
