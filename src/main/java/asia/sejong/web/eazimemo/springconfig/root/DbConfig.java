@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
@@ -20,6 +21,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
+import asia.sejong.web.eazimemo.springconfig.security.SecurityConfig;
+
 @PropertySource(name="jdbc.properties", value="classpath:/META-INF/db/jdbc.properties")
 @Configuration 
 @EnableTransactionManagement
@@ -28,6 +31,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 @ComponentScan(basePackages= {
 		 "asia.sejong.web.eazimemo.service"
 })
+@Import({ SecurityConfig.class }) // MvcConfig 에 위치하면 에러남
 public class DbConfig extends WebMvcConfigurationSupport {  
 	
 	@Autowired

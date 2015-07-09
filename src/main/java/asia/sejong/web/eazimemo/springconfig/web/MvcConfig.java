@@ -1,15 +1,10 @@
 package asia.sejong.web.eazimemo.springconfig.web;
 
-import java.util.Properties;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.Profile;
-import org.springframework.http.MediaType;
-import org.springframework.web.accept.ContentNegotiationManager;
-import org.springframework.web.accept.ContentNegotiationManagerFactoryBean;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -30,6 +25,7 @@ public class MvcConfig extends WebMvcConfigurationSupport {
 		return resolver;
 	}
 	
+	/*
 	@Bean
 	public ContentNegotiationManager contentNegotiationManager() throws Exception {
 		
@@ -46,6 +42,7 @@ public class MvcConfig extends WebMvcConfigurationSupport {
 		
 		return bean.getObject();
 	}
+	*/
 	
 	@Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {

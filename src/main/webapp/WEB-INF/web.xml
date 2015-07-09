@@ -13,7 +13,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			asia.sejong.web.eazimemo.springconfig.root
+			asia.sejong.web.eazimemo.springconfig.root.DbConfig
 		</param-value>
 	</context-param>
 	
@@ -26,6 +26,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	
+	<!-- SERVLET MAPPING -->
 	<servlet>
 		<servlet-name>eazimemo</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -35,7 +36,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		</init-param>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>asia.sejong.web.eazimemo.springconfig.web</param-value>
+			<param-value>asia.sejong.web.eazimemo.springconfig.web.MvcConfig</param-value>
 		</init-param>
 		<init-param>
 			<param-name>spring.profiles.active</param-name>
@@ -43,6 +44,12 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
 		</init-param>
 	</servlet>
 	
+	<servlet-mapping>
+		<servlet-name>eazimemo</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	
+	<!-- SITE MESH -->
 	<filter>
     	<filter-name>sitemesh</filter-name>
     	<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
@@ -52,26 +59,33 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     	<filter-name>sitemesh</filter-name>
     	<url-pattern>/*</url-pattern>
 	</filter-mapping>
-
-	<servlet-mapping>
-		<servlet-name>eazimemo</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
 	
+	<!-- CHARACTER ENCODING -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
 		<init-param>
-		<param-name>encoding</param-name>
-		<param-value>utf-8</param-value>
-	</init-param>
-	<init-param>
-		<param-name>forceEncoding</param-name>
-		<param-value>true</param-value>
-	</init-param>
-</filter>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
 	<filter-mapping>
 		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- SPRING SECURITY -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+ 
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 </web-app>
