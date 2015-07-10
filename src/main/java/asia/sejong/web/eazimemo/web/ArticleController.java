@@ -6,6 +6,7 @@ import org.pegdown.PegDownProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,6 +48,7 @@ public class ArticleController {
 		return mv;
 	}
 	
+	@Secured( {"ROLE_ADMIN", "ROLE_USER" } )
 	@RequestMapping(method = RequestMethod.GET, value = "/edit")
 	public ModelAndView edit(Article article) {
 		ModelAndView mv = new ModelAndView();
@@ -60,12 +62,14 @@ public class ArticleController {
 		return mv;
 	}
 	
+	@Secured( {"ROLE_ADMIN", "ROLE_USER" } )
 	@RequestMapping(method = RequestMethod.POST, value = "/applyAndList")
 	public ModelAndView applyAndList(Article article) {
 		apply(article);
 		return list();
 	}
 	
+	@Secured( {"ROLE_ADMIN", "ROLE_USER" } )
 	@RequestMapping(method = RequestMethod.POST, value = "/apply")
 	@ResponseBody
 	public JsonResult apply(Article article) {

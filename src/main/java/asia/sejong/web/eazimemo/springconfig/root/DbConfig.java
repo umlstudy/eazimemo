@@ -32,10 +32,12 @@ import asia.sejong.web.eazimemo.springconfig.security.SecurityConfig;
 		 "asia.sejong.web.eazimemo.service"
 })
 @Import({ SecurityConfig.class }) // MvcConfig 에 위치하면 에러남
-public class DbConfig extends WebMvcConfigurationSupport {  
+public class DbConfig /*extends WebMvcConfigurationSupport*/ {  
 	
 	@Autowired
     private Environment env;
+	
+	//new ClassPathResource("db.properties")
 
 	@Bean
 	public BasicDataSource getDataSource() {

@@ -75,6 +75,45 @@ CREATE TABLE IF NOT EXISTS KeywordArticleRel (
 ENGINE=InnoDB 
 DEFAULT CHARSET=utf8;
 
+--
+-- User
+--
+CREATE TABLE IF NOT EXISTS User (
+  userId varchar(40) NOT NULL,
+  password varchar(45) NOT NULL,
+  enabled TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (userId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
+INSERT INTO User(userId,password,enabled) VALUES ('sejong','123456', TRUE);
+INSERT INTO User(userId,password,enabled) VALUES ('admin','123456', TRUE);
+--
+-- Group
+--
+CREATE TABLE IF NOT EXISTS RoleGroup (
+  roleGroupId VARCHAR(20) NOT NULL, -- ADMIN, USER ..
+  PRIMARY KEY (roleGroupId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
+INSERT INTO RoleGroup(roleGroupId) VALUES ('ADMIN');
+INSERT INTO RoleGroup(roleGroupId) VALUES ('USER');
+--
+-- UserGroupRel
+--
+CREATE TABLE IF NOT EXISTS UserRoleGroupRel (
+  roleGroupId VARCHAR(20) NOT NULL , -- ADMIN, USER ..
+  userId VARCHAR(40) NOT NULL ,
+  PRIMARY KEY (roleGroupId, userId)
+)
+ENGINE=InnoDB 
+DEFAULT CHARSET=utf8;
+INSERT INTO UserRoleGroupRel(roleGroupId, userId) VALUES ('ADMIN', 'admin');
+INSERT INTO UserRoleGroupRel(roleGroupId, userId) VALUES ('USER', 'sejong');
+
+
+
 -- 계층적 질의를 사용하지 않음 
 SELECT * FROM Article; 
 
