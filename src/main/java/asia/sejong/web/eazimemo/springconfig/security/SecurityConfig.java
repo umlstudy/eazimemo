@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
 
 @Configuration
 @EnableWebSecurity
@@ -27,19 +28,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //		auth.inMemoryAuthentication().withUser("admin").password("123456").roles("ADMIN");
 		auth.jdbcAuthentication().dataSource(dataSource)
 			.usersByUsernameQuery(
-				"select userId as username, password, enabled from User where userId=?")
+				"select userId as username, password, enabled from User where userId=? ")
 			.authoritiesByUsernameQuery(
-				" select u.userId username, g.rolegroupid role " +
+				" select u.userId username, concat('ROLE_', g.rolegroupid ) role " +
+//				" select u.userId username,  g.rolegroupid role " +
 				" from user u, userrolegrouprel r, rolegroup g " +
 				" where u.userid = r.userid and r.roleGroupId=g.roleGroupId " + 
-				" and u.userid=?");
+				" and u.userid=?" );
 	}
 	
-//	@Bean 
-//	@Override
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
+	@Bean 
+	@Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+		JdbcUserDetailsManager judm = new JdbcUserDetailsManager();
+		judm.getUsersByUsernameQuery("");
+        return super.authenticationManagerBean();
+    }
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -73,6 +77,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //          .logout()
 //              .logoutUrl("/logout")
 //              .logoutSuccessUrl("/index");
-		http.csrf().disable().formLogin();
+		//http.csrf().disable().formLogin();
+		http.formLogin();
 	}
 }
