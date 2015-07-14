@@ -22,8 +22,20 @@ public class MvcConfig extends WebMvcConfigurationSupport {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/view/");
 		resolver.setSuffix(".jsp");
+		resolver.setOrder(1);
 		return resolver;
 	}
+	
+//	@Bean
+//	public InternalResourceViewResolver htmlViewResolver() {
+//		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+//		resolver.setPrefix("/view/");
+//		resolver.setSuffix(".html");
+//		resolver.setOrder(0);
+//		resolver.setViewNames(new String[] {"loginPage",});
+//		
+//		return resolver;
+//	}
 	
 	/*
 	@Bean
