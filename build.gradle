@@ -15,8 +15,8 @@ archivesBaseName = "eazimemo"
 group = "asia.sejong"
 // 의존성 설정에 사용할 프로퍼티
 
-project.ext.springVersion = "3.2.0.RELEASE"
-project.ext.springSecurityVersion = "3.2.0.RELEASE"
+project.ext.springVersion = "3.2.6.RELEASE"
+project.ext.springSecurityVersion = "3.2.6.RELEASE"
 project.ext.logbackVersion = "1.1.2"
 project.ext.aspectjVersion = "1.7.4"
 project.ext.slf4jVersion =  "1.7.7"
