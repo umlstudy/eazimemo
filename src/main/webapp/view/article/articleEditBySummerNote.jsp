@@ -43,6 +43,7 @@
 	<input type="hidden" name="content" value="${article.content}"/>
 	<div class="summernote">${article.content}</div>
 	<br/>
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 	<input type="submit" value="저장">
 	<input type="reset" value="리셋">
 </form>

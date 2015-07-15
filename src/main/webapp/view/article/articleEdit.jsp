@@ -14,6 +14,7 @@
 		내용<br/>
 		<textarea name="content" rows="20" cols="40">${article.content}</textarea>
 		<br/>
+		<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 		<input type="submit" value="저장">
 		<input type="reset" value="리셋">
 	</form>
