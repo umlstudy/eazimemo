@@ -53,6 +53,13 @@ war {
 }
 */
 
+war {
+    from('src/main/java') {
+        include '**/*.xml'
+        into 'WEB-INF/classes'
+    }
+}
+
 task jettyRunTasks << {
 	println "jettyRun before..."
 	
