@@ -47,6 +47,22 @@ public class StockController {
 		return mv;
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/stockChart")
+	public ModelAndView stockChart() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/stock/stockChart");
+		
+		List<MyStock> records = CsvManager.readCsvFile(MyStock.class, "/MyStock.csv", MyStock.getFileHeaderMapping());
+		for ( MyStock record : records ) {
+			String datetime = DateUtil.getString("yyyyMMddhhmm", new Date());
+			record.setChartUrl(String.format("http://chart.finance.daum.net/time3/3year/%s-290157.png?date=%s", record.getShcode2(), datetime));
+		}
+		
+		mv.addObject("myStocks", records);
+		
+		return mv;
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/businessReport")
 	public ModelAndView businessReport() {
 		ModelAndView mv = new ModelAndView();

@@ -7,7 +7,9 @@
 </head>
 <body>
 
+<a href="${context}/stock/stockChart">차트보기</a>
 <table id="contentMain">
+	
 	<thead>
 		<tr>
 			<td>
