@@ -3,7 +3,7 @@
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <html>
 <head>
-	<title>주식목록</title>
+	<title>주식차트</title>
 </head>
 <body>
 
@@ -12,15 +12,15 @@
 		<tr>
 			<td>
 			</td>
-			<td>
-			</td>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach var="item" items="${myStocks}" varStatus="status">
 		<tr>
-			<td>${item.hname}</td>
-			<td><a href="${context}/stock/businessReport?shCode=${item.shcode2}">사업보고서</a></td>
+			<td>
+				${item.hname}<br/>
+				<img src="${item.chartUrl}"/>
+			</td>
 		</tr>
 		</c:forEach>
 	</tbody>

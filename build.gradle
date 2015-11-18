@@ -129,8 +129,10 @@ dependencies {
 	compile "ch.qos.logback:logback-core:$project.ext.logbackVersion"
 	compile "ch.qos.logback:logback-classic:$project.ext.logbackVersion"
 	compile "ch.qos.logback:logback-access:$project.ext.logbackVersion"
+	compile 'org.apache.httpcomponents:httpclient:4.3.1'
   
 	testCompile("junit:junit:4.11")
+	//compile('org.springframework:springloaded:1.2.4.RELEASE')
 }
 
 // commons-logging 의존성 제거

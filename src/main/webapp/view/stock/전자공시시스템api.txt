@@ -1,0 +1,17 @@
+목록가져오기
+1. http://dart.fss.or.kr/api/search.json?auth=cd6db35804fa27a6d94f9476659ec0aeeede155b&crp_cd=005930&start_dt=20130101&fin_rpt=Y&dsp_tp=A
+{"err_code":"000","err_msg":"정상","page_no":1,"page_set":10,"total_count":12,"total_page":2,"list":[{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"분기보고서 (2015.09)","rcp_no":"20151116000976","flr_nm":"삼성전자","rcp_dt":"20151116","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"반기보고서 (2015.06)","rcp_no":"20150817000859","flr_nm":"삼성전자","rcp_dt":"20150817","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"분기보고서 (2015.03)","rcp_no":"20150515001379","flr_nm":"삼성전자","rcp_dt":"20150515","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"사업보고서 (2014.12)","rcp_no":"20150331002915","flr_nm":"삼성전자","rcp_dt":"20150331","rmk":"연"},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"분기보고서 (2014.09)","rcp_no":"20141114000755","flr_nm":"삼성전자","rcp_dt":"20141114","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"반기보고서 (2014.06)","rcp_no":"20140814000743","flr_nm":"삼성전자","rcp_dt":"20140814","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"분기보고서 (2014.03)","rcp_no":"20140515001057","flr_nm":"삼성전자","rcp_dt":"20140515","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"사업보고서 (2013.12)","rcp_no":"20140331002427","flr_nm":"삼성전자","rcp_dt":"20140331","rmk":"연"},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"분기보고서 (2013.09)","rcp_no":"20131114000520","flr_nm":"삼성전자","rcp_dt":"20131114","rmk":""},{"crp_cls":"Y","crp_nm":"삼성전자","crp_cd":"005930","rpt_nm":"반기보고서 (2013.06)","rcp_no":"20130814000618","flr_nm":"삼성전자","rcp_dt":"20130814","rmk":""}]}
+
+2. http://dart.fss.or.kr/api/search.xml?auth=cd6db35804fa27a6d94f9476659ec0aeeede155b&crp_cd=005930&start_dt=19990101&bsn_tp=A001&bsn_tp=A002&bsn_tp=A003
+
+상세내용
+1.모바일
+http://m.dart.fss.or.kr/html_mdart/MD1007.html?rcpNo=20151116000976
+2.피시
+http://dart.fss.or.kr/dsaf001/main.do?rcpNo=20151116000976
+
+-- 아래 주소는 공식 주소가 아닌 추출 주소임 --
+섹션정보
+http://m.dart.fss.or.kr/viewer/main.st?rcpNo=20151116000976
+상세섹션
+http://m.dart.fss.or.kr/report/main.do?rcpNo=20151116000976&dcmNo=4854164&eleId=3
