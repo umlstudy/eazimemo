@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<meta name="viewport" content="width=device-width">
     	<title><sitemesh:write property='title'/></title>
     	<link type="text/css" href="${pageContext.request.contextPath}/view/decorator.css" rel="stylesheet"/>
 		<sitemesh:write property='head'/>
@@ -18,6 +19,7 @@
 <div class='navigation'>
 <b>메뉴:</b>
 [<a href="http://mac.sejong.asia">홈</a>]
+[<a href="javascript:history.go(-1);">뒤로</a>]
 <%--
 [<a href="<c:url value='/view/demo.jsp'/>">동적파일</a>]
 --%>

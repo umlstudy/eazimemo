@@ -22,7 +22,10 @@
 		<c:forEach var="item" items="${myStocks}" varStatus="status">
 		<tr>
 			<td>${item.hname}</td>
+			<%--
 			<td><a href="${context}/stock/businessReport?shCode=${item.shcode2}">사업보고서</a></td>
+			 --%>
+			<td><a href="${context}/page/stock/businessReportDescriptors?shCode=${item.shcode2}">사업보고서</a></td>
 		</tr>
 		</c:forEach>
 	</tbody>

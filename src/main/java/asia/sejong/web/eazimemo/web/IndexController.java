@@ -1,5 +1,7 @@
 package asia.sejong.web.eazimemo.web;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,5 +36,15 @@ public class IndexController {
  
 		return model;
  
+	}
+	
+	@RequestMapping(value = "/page/**", method = RequestMethod.GET)
+	public String page(HttpServletRequest request) {
+
+		String view = request.getRequestURI();
+		String ctx = request.getContextPath();
+		String url = view.substring(ctx.length() + "/page".length(), view.length());
+
+		return url;
 	}
 }
