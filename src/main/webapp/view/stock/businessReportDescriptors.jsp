@@ -19,16 +19,14 @@
 <table id="BusinessReportDescriptor">
 	<thead>
 		<tr>
-			<td>회사명</td>
-			<td>보고서명</td>
+			<th id="companyName" style="text-align:left;"></th>
 		</tr>
 	</thead>
 	<tbody></tbody>
 </table>
 <script id="BusinessReportDescriptorTmpl" type="text/x-jquery-tmpl">
 	<tr>
-		<td style="text-align:right;">{{= crpNm}}</td>
-		<td style="text-align:right;">
+		<td style="text-align:left;">
 			<a href="${context}/page/stock/businessReportSectionInfo?rcpNo={{= rcpNo}}">{{= rptNm}}</a>
 		</td>
 	</tr>
@@ -72,9 +70,12 @@ var showBusinessReportDescriptor = function() {
 	var async = false;
 	var url = "${context}/stock/businessReportDescriptors";
 	var type = "GET";
-	var data = "shCode=${param.shCode}";
+	var data = "shCode=${param.shCode}&type=${param.type}";
 	ajaxRun(async, url, type, data, function(recvData) {
 		var json = JSON.parse(recvData);
+		if ( json.list.length > 0 ) {
+			$("#companyName").text(json.list[0].crpNm);
+		}
 		for (var idx in json.list) {
 			var brDescriptor = $("#BusinessReportDescriptorTmpl").tmpl(json.list[idx]);
 			brDescriptor.appendTo("#BusinessReportDescriptor tbody");

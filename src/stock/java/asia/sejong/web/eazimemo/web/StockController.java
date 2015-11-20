@@ -73,9 +73,14 @@ public class StockController {
 	
 	@ResponseBody
 	@RequestMapping(method = RequestMethod.GET, value = "/businessReportDescriptors")
-	public String businessReportDescriptors(String shCode) throws Exception {
+	public String businessReportDescriptors(String shCode, String type) throws Exception {
 		
-		String url = "http://dart.fss.or.kr/api/search.json?auth=%s&crp_cd=%s&start_dt=19990101&bsn_tp=A001&bsn_tp=A002&bsn_tp=A003&bsn_tp=F001&bsn_tp=F002&bsn_tp=F003";
+		String url = null;
+		if ( "B".equals(type) ) {
+			url = "http://dart.fss.or.kr/api/search.json?auth=%s&crp_cd=%s&start_dt=19990101&bsn_tp=A001&bsn_tp=A002&bsn_tp=A003&bsn_tp=F001&bsn_tp=F002&bsn_tp=F003";
+		} else {
+			url = "http://dart.fss.or.kr/api/search.json?auth=%s&crp_cd=%s&start_dt=19990101&dst_tp=A&dst_tp=B&dst_tp=C&dst_tp=D&dst_tp=E&dst_tp=F&dst_tp=G&dst_tp=H&dst_tp=I&&dst_tp=J&page_set=20";
+		}
 		String json = HttpClientUtil.get(String.format(url, AUTH_KEY, shCode));
 		BusinessReportDescriptors brDescriptors = GSON_LOWER_CASE_WITH_UNDERSCORES.fromJson(json, BusinessReportDescriptors.class);
 		
