@@ -4,6 +4,7 @@
 <html>
 <head>
 <!-- HEAD START -->
+<meta name="viewport" content="width=device-width">
 <title>주식목록</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="${context}/resources/scripts/extras/jquery/addon/jquery.tmpl.min.js" type="text/javascript"></script>

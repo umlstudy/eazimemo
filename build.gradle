@@ -121,6 +121,9 @@ dependencies {
 	// md 해석기
 	compile 'org.pegdown:pegdown:1.5.0'
 	
+	// HTML PARSER
+	compile 'org.jsoup:jsoup:1.8.3'
+	
 	// LOG
 	compile "commons-logging:commons-logging:1.1.3"
 	compile "com.googlecode.log4jdbc:log4jdbc:1.2"

@@ -5,9 +5,10 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    	<meta name="viewport" content="width=device-width">
-    	<title><sitemesh:write property='title'/></title>
     	<link type="text/css" href="${pageContext.request.contextPath}/view/decorator.css" rel="stylesheet"/>
+		<%-- 
+    	<title><sitemesh:write property='title'/></title>
+		--%>
 		<sitemesh:write property='head'/>
 	</head>
 

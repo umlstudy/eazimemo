@@ -4,6 +4,7 @@
 <html>
 <head>
 <!-- HEAD START -->
+<meta name="viewport" content="width=device-width">
 <title>BusinessReportSectionInfo</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="${context}/resources/scripts/extras/jquery/addon/jquery.tmpl.min.js" type="text/javascript"></script>
@@ -79,7 +80,7 @@ var showBusinessReportSectionInfo = function(rcpNo) {
 		for (var idx in json.toc) {
 			json.toc[idx].rcpNo = rcpNo;
 			var brDescriptor = $("#BusinessReportSectionInfoTmpl").tmpl(json.toc[idx]);
-			brDescriptor.prependTo("#BusinessReportSectionInfo tbody");
+			brDescriptor.appendTo("#BusinessReportSectionInfo tbody");
 		}
 	});
 };

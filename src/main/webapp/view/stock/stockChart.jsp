@@ -3,6 +3,7 @@
 <c:set var="context" value="${pageContext.request.contextPath}" />
 <html>
 <head>
+   	<meta name="viewport" content="width=device-width">
 	<title>주식차트</title>
 </head>
 <body>

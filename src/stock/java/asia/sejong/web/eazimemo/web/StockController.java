@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import asia.sejong.csv.CsvManager;
 import asia.sejong.csv.MyStock;
+import asia.sejong.stock.bean.CorpInfos;
 import asia.sejong.web.eazimemo.util.DateUtil;
 import asia.sejong.web.eazimemo.util.HttpClientUtil;
 
@@ -74,7 +75,7 @@ public class StockController {
 	@RequestMapping(method = RequestMethod.GET, value = "/businessReportDescriptors")
 	public String businessReportDescriptors(String shCode) throws Exception {
 		
-		String url = "http://dart.fss.or.kr/api/search.json?auth=%s&crp_cd=%s&start_dt=19990101&bsn_tp=A001&bsn_tp=A002&bsn_tp=A003";
+		String url = "http://dart.fss.or.kr/api/search.json?auth=%s&crp_cd=%s&start_dt=19990101&bsn_tp=A001&bsn_tp=A002&bsn_tp=A003&bsn_tp=F001&bsn_tp=F002&bsn_tp=F003";
 		String json = HttpClientUtil.get(String.format(url, AUTH_KEY, shCode));
 		BusinessReportDescriptors brDescriptors = GSON_LOWER_CASE_WITH_UNDERSCORES.fromJson(json, BusinessReportDescriptors.class);
 		
@@ -102,9 +103,22 @@ public class StockController {
 		return rslt;
 	}
 	
+	// http://m.dart.fss.or.kr/md3004/search.st?stype=md1004&screenid=md1006&currentPage=1&finalReport=on&startDate=20150520&endDate=20151120&textCrpNm=%EC%A0%9C%EB%8B%88%ED%8D%BC
+	@ResponseBody
+	@RequestMapping(method = RequestMethod.GET, value = "/searchCorpInfo")
+	public CorpInfos searchCorpInfo(String crpNm) throws Exception {
+		
+		String url = "http://m.dart.fss.or.kr/md3004/search.st?stype=md1004&screenid=md1006&currentPage=1&finalReport=on&startDate=20150520&endDate=20151120&textCrpNm=%s";
+		String json = HttpClientUtil.get(String.format(url, crpNm));
+		CorpInfos corpInfos = GSON_LOWER_CASE_WITH_UNDERSCORES.fromJson(json, CorpInfos.class);
+		
+		return corpInfos;
+	}
+	
 	public static void main(String...args) throws Exception {
-		System.out.println(new StockController().businessReportDescriptors("005930"));
-		System.out.println(new StockController().businessReportSectionInfo("20151116000976"));
-		System.out.println(new StockController().businessReportSectionDetail("20151116000976", 4854164, 29));
+		//System.out.println(new StockController().businessReportDescriptors("005930"));
+		//System.out.println(new StockController().businessReportSectionInfo("20151116000976"));
+		//System.out.println(new StockController().businessReportSectionDetail("20151116000976", 4854164, 29));
+		System.out.println(new StockController().searchCorpInfo("제니"));
 	}
 }

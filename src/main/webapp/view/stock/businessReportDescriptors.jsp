@@ -4,6 +4,7 @@
 <html>
 <head>
 <!-- HEAD START -->
+<meta name="viewport" content="width=device-width">
 <title>BusinessReportDescriptors</title>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="${context}/resources/scripts/extras/jquery/addon/jquery.tmpl.min.js" type="text/javascript"></script>
@@ -76,7 +77,7 @@ var showBusinessReportDescriptor = function() {
 		var json = JSON.parse(recvData);
 		for (var idx in json.list) {
 			var brDescriptor = $("#BusinessReportDescriptorTmpl").tmpl(json.list[idx]);
-			brDescriptor.prependTo("#BusinessReportDescriptor tbody");
+			brDescriptor.appendTo("#BusinessReportDescriptor tbody");
 		}
 	});
 };
